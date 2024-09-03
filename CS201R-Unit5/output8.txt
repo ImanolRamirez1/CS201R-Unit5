@@ -1,0 +1,5 @@
+The average of the values is: 12.8
+The average of the values is: 0
+No valid values in input line: a b c
+ERROR: 15 B 11
+The average of the values is: 2.5
