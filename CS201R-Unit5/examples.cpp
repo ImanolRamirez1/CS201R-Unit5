@@ -38,8 +38,15 @@ void example1() {
     inFile.close();
 }
 
+
 void example2() {
-    //Demonstration of stringstream
+    //Demonstration of stringstream, vector of struct types
+
+    struct Person {
+        string last;
+        string first;
+        int age;
+    };
 
     // name the input & output streams
     ifstream inFile;
@@ -54,20 +61,31 @@ void example2() {
     //reading a CSV file
     string inLine, last, first, age;
 
-    //UPDATE LOGIC TO STORE VALUES IN VECTOR & PRINT LATER
+    vector<Person> people;
+    Person temp;
+
     while (getline(inFile, inLine)) {     // read each line of input
         istringstream inSS(inLine);
+
         // separate data (separated by white space)
+        // these are all strings
         inSS >> last;
         inSS >> first;
         inSS >> age;
 
+        //UPDATE LOGIC TO STORE VALUES IN VECTOR  
+ 
+
         outFile << first << " " << last << " : " << age << endl;
     }
+
+    //UPDATE LOGIC TO PRINT VECTOR
+  
     outFile.close();
     inFile.close();
 }
 
+ 
 void example3() {
     //Demonstration of File I/O & CSV file input using string stream & output formatting
 
@@ -94,7 +112,7 @@ void example3() {
         stringstream inSS(inLine);        //copy input line to stringstream
         tokens.clear();                   //clear vector of previous data
         while (getline(inSS, token, ',')) {  //as long as there are commas
-            tokens.push_back(token);         //add string to vector of tokens
+            tokens.push_back(token);         //add string(token)to vector of tokens
         }
         outFile << tokens[0] << "  "
             << setw(20) << left << tokens[1]
@@ -110,7 +128,7 @@ void example4() {
     //Demonstration of File I/O & CSV file input using string stream & output formatting
     //store values in a vector of 'struct' types containing the id, name, and 3 scores
 
-    struct dataLine {          //using a struct for related student data
+    struct studentInfo {          //using a struct for related student data
         char id;
         string name;
         int score1;
@@ -132,8 +150,8 @@ void example4() {
         return;
     }
 
-    vector<dataLine> studentData;             // create a vector to hold student data
-    dataLine tempData;                        // create a struct to hold 1 student's data
+    vector<studentInfo> studentData;             // create a vector to hold student data
+    studentInfo tempData;                        // create a struct to hold 1 student's data
     string inLine, token;
     vector<string> tokens;                    // vector of strings to hold each 
     // string between the commas
