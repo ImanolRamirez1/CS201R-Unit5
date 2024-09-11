@@ -35,7 +35,7 @@ void example1() {
 
     // close the input & output files
     outFile.close();
-    inFile.close();
+    inFile.close(); 
 }
 
 
@@ -165,6 +165,7 @@ void example4() {
             tokens.push_back(token);              //as long as there are commas 
             // push each value onto row
         }
+        try{
         //store data from row in temp data structure
         tempData.id = tokens[0][0];              //row[0] is a string - take 0th character
         tempData.name = tokens[1];
@@ -174,7 +175,11 @@ void example4() {
 
         studentData.push_back(tempData);       // push student onto the vector
     }
-
+            cout<<<(invalid_arguement){
+            outFile<<"ERROR in input: "<<inLine<<endl;
+    }
+    }
+            
     //print id, name, scores & average
     for (int i = 0; i < studentData.size(); i++) {
         sum = studentData[i].score1 + studentData[i].score2 + studentData[i].score3;
